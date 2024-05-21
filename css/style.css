@@ -8,75 +8,101 @@
 
 html{
     font-family: 'Roboto', sans-serif;
-    color: #151515;
-    text-align: center;
-}
-
-img {
-    height: 500px;
-    border-radius: 15px;
-
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-img:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 10px rgba(103, 62, 121, 0.5);
 }
 
 .movie-card {
+    display: flex;
+    background: linear-gradient(to right, rgba(22.75%, 23.53%, 28.24%, 1.00) 150px, rgba(22.75%, 23.53%, 28.24%, 0.84) 100%), url('../images/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 50vh;
     margin-top: 5rem;
-    text-align: center;
-
-    animation: slideFromTop 1s ease-in-out forwards;
+    width: 100%;
+    justify-content: center;
+            align-items: center;
 }
 
-.movie-title {
-    text-transform: uppercase;
-    font-weight: bold;
+.movie-poster-container {
+    display: inline-block;
+    height: 85%;
+    width: 30%;
+    text-align: right;
 
-    animation: slideFromTop 1s ease-in-out forwards;
+    position: relative;
+    left: -50rem;
+
+    animation: slideFromL 2s ease-in-out forwards;
 }
 
-@keyframes slideFromTop {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+@keyframes slideFromL {
+    80% {left: 1.5rem;}
+    100% {left: 0;}
+}
+
+.movie-poster {
+    height: 100%;
+    border-radius: 5px;
+
+    margin-right: 2rem;
+    transition: all 1s;
+}
+
+.movie-poster:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 8px -4px rgb(105, 156, 140);
+}
+
+.movie-info-container {
+    height: 100%;
+    width: 70%;
+   
+}
+
+.movie-info-container {
+    padding-left: 2rem;
+    padding-top: 1rem;
+    color: #fff;
+}
+
+.movie-info-container > *:not(.movie-info-title){
+    opacity: 0;
+
+    animation: fade-in 2s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fade-in {
+    100% {opacity: 1;}
+}
+
+.movie-info-title {
+    text-transform: capitalize;
+    margin-top: 2rem;
+    transform: translateY(-150px);
+    animation: slideFromT 1.5s ease-in-out forwards;
+}
+
+@keyframes slideFromT {
+    80% {transform: translateY(5px);}
+    100% {transform: translateY(0);}
 }
 
 .movie-rating {
     display: inline-block;
-    border: 1px solid #151515;
+    border: 1px solid #fff;
     padding: 0.5rem;
     border-radius: 5px;
 }
 
 .movie-duration {
     margin-left: 1rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
 }
 
 .movie-duration:before {
-    content:"\2022";
-    font-weight: bold;
-    vertical-align: middle;
-}
-
-.movie-info-quote {
-    color: #151515;
-    font-style: italic;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.movie-info-overview-title {
-    text-transform: capitalize;
-    letter-spacing: 0.1rem;
+    content:"\2022 ";
 }
 
 .movie-info-actions {
@@ -95,12 +121,8 @@ img:hover {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: rgb(9, 41, 68);
+    background-color: rgb(3, 37, 65);
     
-}
-
-.movie-info-actions ul li:hover {
-    transform: scale(1.1);
 }
 
 .movie-info-actions ul li a {
@@ -113,8 +135,33 @@ img:hover {
     justify-content: center;
 }
 
-footer {
+.movie-info-quote {
+    color: rgba(255, 255, 255, 0.596);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.movie-info-overview-title {
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.movie-info-people {
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+.movie-info-people li {
+    display: inline-block;
+    margin-right: 15rem;
+}
+
+.movie-info-people li p:first-child {
+    font-weight: 900;
+}
+
+footer {
+    margin-top: 2rem;
     text-align: center;
     color: #777;
 }
@@ -135,16 +182,4 @@ footer ul li a {
     text-transform: uppercase;
     text-decoration: none;
     color: #777;
-}
-
-
-.movie-info-container, footer, .movie-genres> *:not(.movie-info-title){
-    opacity: 0;
-
-    animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes fade-in {
-    100% {opacity: 1;}
 }
